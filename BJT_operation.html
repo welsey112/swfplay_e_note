@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWF Player</title>
-    <script src="./ruffle/ruffle.js"></script>
-    <style>
-        body { font-family: sans-serif; background: #111; color: #fff; text-align: center; }
-        h1 { margin-top: 20px; }
-        .swf-container { margin: 20px auto; max-width: 800px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BJT Operation</title>
+  <script src="./ruffle/ruffle.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 28px;
+    }
+
+    #player {
+      width: 900px;
+      max-width: 95vw;
+      height: 650px;
+      margin: 20px auto;
+      border: 1px solid #333;
+      background: #000;
+    }
+  </style>
 </head>
 <body>
-    <h1>SWF Interactive Player</h1>
-    <div class="swf-container">
-        <h2>BJT Operation</h2>
-        <div>
-            <object width="600" height="400" data="BJT_operation.swf" type="application/x-shockwave-flash">
-                <param name="quality" value="high">
-                <param name="allowScriptAccess" value="always">
-                <param name="allowFullScreen" value="true">
-                <param name="wmode" value="transparent">
-                <p>Flash content cannot be displayed. Please enable Ruffle.</p>
-            </object>
-        </div>
-    </div>
-    <div class="swf-container">
-        <h2>JFET Operation</h2>
-        <div>
-            <object width="600" height="400" data="JFET_operation.swf" type="application/x-shockwave-flash">
-                <param name="quality" value="high">
-                <param name="allowScriptAccess" value="always">
-                <param name="allowFullScreen" value="true">
-                <param name="wmode" value="transparent">
-                <p>Flash content cannot be displayed. Please enable Ruffle.</p>
-            </object>
-        </div>
-    </div>
+  <h1>BJT Operation</h1>
+  <div id="player"></div>
+
+  <script>
+    window.addEventListener("load", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("player");
+      container.appendChild(player);
+
+      player.style.width = "100%";
+      player.style.height = "100%";
+
+      player.load({
+        url: "./BJT_operation.swf"
+      });
+    });
+  </script>
 </body>
 </html>
