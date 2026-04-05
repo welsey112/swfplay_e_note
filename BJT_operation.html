@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWF Player</title>
+    <script src="./ruffle/ruffle.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #111; color: #fff; text-align: center; }
+        h1 { margin-top: 20px; }
+        .swf-container { margin: 20px auto; max-width: 800px; }
+    </style>
+</head>
+<body>
+    <h1>SWF Interactive Player</h1>
+    <div class="swf-container">
+        <h2>BJT Operation</h2>
+        <div>
+            <object width="600" height="400" data="BJT_operation.swf" type="application/x-shockwave-flash">
+                <param name="quality" value="high">
+                <param name="allowScriptAccess" value="always">
+                <param name="allowFullScreen" value="true">
+                <param name="wmode" value="transparent">
+                <p>Flash content cannot be displayed. Please enable Ruffle.</p>
+            </object>
+        </div>
+    </div>
+    <div class="swf-container">
+        <h2>JFET Operation</h2>
+        <div>
+            <object width="600" height="400" data="JFET_operation.swf" type="application/x-shockwave-flash">
+                <param name="quality" value="high">
+                <param name="allowScriptAccess" value="always">
+                <param name="allowFullScreen" value="true">
+                <param name="wmode" value="transparent">
+                <p>Flash content cannot be displayed. Please enable Ruffle.</p>
+            </object>
+        </div>
+    </div>
+</body>
+</html>
