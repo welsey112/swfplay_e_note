@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>n-channel MOSFET</title>
+  <script src="./ruffle/ruffle.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 28px;
+    }
+
+    #player {
+      width: 900px;
+      max-width: 95vw;
+      height: 650px;
+      margin: 20px auto;
+      border: 1px solid #333;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>JFET Operation</h1>
+  <div id="player"></div>
+
+  <script>
+    window.addEventListener("load", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("player");
+      container.appendChild(player);
+
+      player.style.width = "100%";
+      player.style.height = "100%";
+
+      player.load({
+        url: "./n-channel_mosfet.swf"
+      });
+    });
+  </script>
+</body>
+</html>
