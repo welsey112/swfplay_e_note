@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N-Channel MOSFET</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #f5f7fb;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .title h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .title p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .player-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .player-box {
+      width: 100%;
+      max-width: 1000px;
+      min-height: 720px;
+      background: #fff;
+      border: 1px solid #d9dfe8;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #flash-content {
+      width: 100%;
+      height: 720px;
+    }
+
+    .note {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .fallback {
+      padding: 24px;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .fallback code {
+      background: #f0f2f5;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="title">
+      <h1>N-Channel MOSFET</h1>
+    </div>
+
+    <div class="player-wrap">
+      <div class="player-box">
+        <div id="flash-content">
+          <div class="fallback">
+            Loading animation...<br />
+            If it does not appear, check whether
+            <code>ruffle/ruffle.js</code> and
+            <code>n-channel_mosfet/mosfet.swf</code>
+            exist in the correct paths.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./ruffle/ruffle.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      const container = document.getElementById("flash-content");
+
+      if (!window.RufflePlayer) {
+        container.innerHTML = `
+          <div class="fallback">
+            Ruffle failed to load.<br />
+            Please confirm <code>./ruffle/ruffle.js</code> exists.
+          </div>
+        `;
+        return;
+      }
+
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+
+      player.style.width = "100%";
+      player.style.height = "720px";
+
+      container.innerHTML = "";
+      container.appendChild(player);
+
+      player.load({
+        url: "./mosfet.swf",
+        autoplay: "on",
+        unmuteOverlay: "hidden",
+        splashScreen: false,
+        allowScriptAccess: true
+      });
+    });
+  </script>
+</body>
+</html>
